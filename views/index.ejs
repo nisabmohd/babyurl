@@ -13,46 +13,98 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <title>shorturl</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <h5 style="margin-left: 12px;font-family: 'Fugaz One', cursive;">BABYURL</h5>
-            </a>
+    <div class="bg-dark" style="height: inherit;">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand m-auto d-flex align-items-center" href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                        class="bi bi-scissors mb-3" viewBox="0 0 16 16">
+                        <path
+                            d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61 3.5 3.5zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
+                    </svg>
+                    <h5 style="margin-left: 12px;font-family: 'Fugaz One', cursive;">SHORTURL</h5>
+                </a>
+            </div>
+        </nav>
+        <div class="container d-flex justify-content-center mt-5">
+            <h3 style="color: rgb(255, 255, 255);font-family: 'Roboto Mono', monospace;">Welcome to shorturl</h3>
         </div>
-    </nav>
-    <form class="container d-flex justify-content-center align-items-center" style="width: 100vw;height: 92vh;" method="post">
-        <div class="card pt-4" style="width: 369px;height: 405px;border-radius: 11px;">
-            <div class="input-group mb-3 mt-3 m-auto d-flex flex-column " style="width: 95%;">
-                <h6 style="margin-left:11px"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                        fill="currentColor" class="bi bi-link mb-1" style="margin-right: 4px;margin-left:3px"
-                        viewBox="0 0 16 16">
+        <div class="container">
+            <%if (show) { %>
+                <div class="alert alert-<%= showval %> d-flex align-items-center m-auto mt-3 mb-0" role="alert"
+                    style="width: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                        aria-label="Warning:">
                         <path
-                            d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z" />
-                        <path
-                            d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z" />
-                    </svg> Enter a long url to make a babyurl</h6>
-                <input name="url" id="url" type="text" class="form-control m-auto p-3 " id="basic-url" aria-describedby="basic-addon3"
-                    style="width: inherit;border-radius: 12px;">
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </svg>
+                    <div>
+                        <%= msg %>
+                            <%= shorturl %>
+                    </div>
+                </div>
+                <% } %>
+
+
+        </div>
+        <form class="container d-flex justify-content-center align-items-center my-3" style="width: 100vw;height: 60vh;"
+            method="post">
+            <div class="card pt-4" style="width: 369px;height: 405px;border-radius: 11px;">
+                <div class="input-group mb-3 mt-3 m-auto d-flex flex-column " style="width: 95%;">
+                    <h6 style="margin-left:11px;font-family: 'PT Sans', sans-serif;font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            fill="currentColor" class="bi bi-link mb-1" style="margin-right: 4px;margin-left:3px;font-family: 'PT Sans', sans-serif;"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z" />
+                            <path
+                                d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z" />
+                        </svg> Enter a long url to make a shorturl</h6>
+                    <input placeholder="https://youtu.be/bKzzm3bgNQU" name="url" id="url" type="text"
+                        class="form-control m-auto p-3 " id="basic-url" aria-describedby="basic-addon3"
+                        style="width: inherit;border-radius: 12px;font-size: 14px;" required>
+                </div>
+                <div class="input-group mb-3 mt-2 m-auto d-flex flex-column " style="width: 95%;">
+                    <h6 style="margin-left:11px;font-family: 'PT Sans', sans-serif;font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" class="bi bi-magic mb-1 " style="margin-right: 7px;margin-left:3px;"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707L14 2.707ZM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707L7.293 4Zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1h1.829Zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1h1.829ZM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707L13.293 10ZM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0v1.829Zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0L8.354 9.06Z" />
+                        </svg>Customize your link</h6>
+                    <input placeholder="Enter alias" name="alias" id="alias" type="text"
+                        class="form-control m-auto p-3 " id="basic-url" aria-describedby="basic-addon3"
+                        style="width: inherit; border-radius: 12px;font-size: 14.5px;" required>
+                </div>
+                <button class="btn btn-success m-auto mt-3 font-weight-bold p-3"
+                    style="width: 90%;border-radius: 12px;font-weight: bold;">Make shorturl</button>
             </div>
-            <div class="input-group mb-3 mt-2 m-auto d-flex flex-column " style="width: 95%;">
-                <h6 style="margin-left:11px"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        fill="currentColor" class="bi bi-magic mb-1 " style="margin-right: 7px;margin-left:3px"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707L14 2.707ZM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707L7.293 4Zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1h1.829Zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1h1.829ZM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707L13.293 10ZM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0v1.829Zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0L8.354 9.06Z" />
-                    </svg>Customize your link</h6>
-                <input name="alias" id="alias" type="text" class="form-control m-auto p-3 " id="basic-url" aria-describedby="basic-addon3"
-                    style="width: inherit; border-radius: 12px;">
-            </div>
-            <button class="btn btn-success m-auto mt-3 font-weight-bold p-3"
-                style="width: 90%;border-radius: 12px;font-weight: bold;">Make babyurl</button>
+
+        </form>
+        <div class="container d-flex align-content-center">
+            <p style="font-size: 13.75px;color: white;font-family: 'PT Sans', sans-serif;text-align: center;" class="m-auto my-4">By clicking Make shorturl, I agree to the terms
+                of service,
+                privacy policy and use of cookies.</p>
         </div>
 
-    </form>
+    </div>
 </body>
 
 </html>
